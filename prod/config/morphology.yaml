@@ -1,0 +1,217 @@
+# Morphological processing configurations
+
+arabic_stemming:
+  # Arabic prefixes (longest first)
+  prefixes:
+    - "وال"
+    - "فال" 
+    - "بال"
+    - "كال"
+    - "لل"
+    - "ال"
+    - "و"
+    - "ف"
+    - "ب"
+    - "ك"
+    - "ل"
+    - "س"
+  
+  # Arabic suffixes (longest first)
+  suffixes:
+    - "كما"
+    - "هما"
+    - "كم"
+    - "كن"
+    - "نا"
+    - "هما"
+    - "هم"
+    - "هن"
+    - "ها"
+    - "كما"
+    - "ين"
+    - "ون"
+    - "ان"
+    - "ات"
+    - "وا"
+    - "يه"
+    - "ية"
+    - "ه"
+    - "ي"
+    - "ك"
+    - "ه"
+
+  # Protected agricultural terms (prevent over-stemming)
+  protected_terms:
+    # Fruits and vegetables
+    - "فاكهة"
+    - "فواكه"
+    - "الفواكه"
+    - "ثمار"
+    - "فاكهه"
+    
+    # PETS - Critical protection against false positives
+    - "بسة"      # cat - CRITICAL: prevent بسة → بس stemming
+    - "قطة"      # cat
+    - "قط"       # cat
+    - "قطط"      # cats
+    - "القطط"    # the cats
+    - "كلب"      # dog
+    - "كلاب"     # dogs
+    - "الكلاب"   # the dogs
+    - "حيوان"    # animal (generic pet context)
+    - "حيوانات"  # animals (generic pet context)
+    - "أليف"     # domesticated/pet
+    - "أليفة"    # domesticated/pet (feminine)
+    - "منزلي"    # domestic/house
+    - "منزلية"   # domestic/house (feminine)
+    - "خضار"
+    - "خضروات"
+    - "الخضار"
+    - "طماطم"
+    - "الطماطم"
+    - "بطاطس"
+    - "بطاطا"
+    - "مانجو"
+    - "المانجو"
+    - "تين"
+    - "التين"
+    - "حمضيات"
+    - "الحمضيات"
+    - "موالح"
+    - "الموالح"
+    - "زيتون"
+    - "الزيتون"
+    - "تفاح"
+    - "التفاح"
+    
+    # Animals (critical for your failing queries)
+    - "مواشي"
+    - "ماشية"
+    - "الماشية"
+    - "أبقار"
+    - "الأبقار"
+    - "خيل"
+    - "الخيل"
+    - "فرس"
+    - "حصان"
+    - "الحصان" 
+    - "خيول"
+    - "الخيول"
+    - "جمال"
+    - "إبل"
+    - "الإبل"
+    - "ناقة"
+    - "جمل"
+    - "دواجن"
+    - "الدواجن"
+    - "دجاج"
+    - "الدجاج"
+    - "أرانب"
+    - "الأرانب"
+    - "نحل"
+    - "النحل"
+    - "نحال"
+    - "نحالة"
+    - "نحالين"
+    - "منحل"
+    - "مناحل"
+    - "عسل"
+    - "العسل"
+    - "أسماك"
+    - "الأسماك"
+    - "سمك"
+    - "ربيان"
+    - "الربيان"
+    # Pets (critical for بسة query)
+    - "قطط"
+    - "القطط" 
+    - "قط"
+    - "القط"
+    - "بسة"
+    - "البسة"
+    - "بس"
+    - "كلاب"
+    - "الكلاب"
+    - "كلب"
+    - "الكلب"
+    
+    # Feed and food
+    - "علف"
+    - "أعلاف"
+    - "الأعلاف"
+    - "تغذية"
+    
+    # License types
+    - "انشائي"
+    - "تشغيلي"
+    - "ترخيص"
+    - "تراخيص"
+    - "رخصة"
+    - "تصريح"
+    - "تصاريح"
+    - "إذن"
+    - "اذن"
+    
+    # Actions
+    - "تربية"
+    - "إنتاج"
+    - "زراعة"
+    - "استزراع"
+    - "مزرعة"
+    - "نقل"
+    - "تحويل"
+    - "ملكية"
+    - "تجديد"
+    - "توسعة"
+    - "بيع"
+    - "تسويق"
+    - "مبيعات"
+    - "تجارة"
+    
+    # Sectors
+    - "زراعي"
+    - "حيواني"
+    - "مائي"
+    - "بحري"
+    - "ريفي"
+    - "بيطري"
+    - "البيطري"
+    
+    # Infrastructure (critical for احفر بير query)
+    - "احفر"
+    - "بير"
+    - "بئر"
+    - "بئار"
+    - "الآبار"
+    - "حفر"
+    - "حفار"
+    - "حفرة"
+    - "مياه"
+    - "المياه"
+
+# PyArabic configuration (fast, offline Arabic processing)
+pyarabic_config:
+  # Enable different PyArabic features
+  normalize_hamza: true          # Normalize hamza forms
+  normalize_alef: true           # Normalize alef forms  
+  normalize_yeh: true            # Normalize yeh forms
+  remove_diacritics: true        # Remove diacritical marks
+  remove_tatweel: true           # Remove tatweel (kashida)
+  normalize_teh: true            # Normalize teh marbuta
+  
+  # Stemming approach
+  stemming_method: "light"       # Options: "light", "root", "prefix_suffix", "custom"
+  use_root_extraction: false     # Try to extract Arabic roots
+  
+  # Light stemming parameters
+  remove_common_prefixes: true   # Remove common prefixes (ال، و، ف، etc)
+  remove_common_suffixes: true   # Remove common suffixes (ها، هم، etc)
+  
+  # Custom parameters
+  aggressive_stemming: false     # More aggressive stemming if true
+
+# Stemming parameters
+stemming_params:
+  min_word_length: 3        # Don't stem words shorter than this
+  min_reduction_ratio: 0.6  # Don't reduce by more than 40%
+  min_stem_length: 2        # Stem must be at least this long

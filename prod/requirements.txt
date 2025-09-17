@@ -1,0 +1,30 @@
+# PRODUCTION REQUIREMENTS - WINNER CONFIG ONLY
+# multilingual_e5_pure-cosine-reranker_k100_a0.6_full_proc
+
+# Core ML libraries
+torch
+sentence-transformers
+transformers
+scikit-learn
+numpy
+
+# LangChain for document handling
+langchain
+langchain-community
+
+# Arabic processing (full_proc)
+pyarabic
+pyyaml
+
+# Data processing
+openpyxl
+pandas
+
+# API framework
+fastapi
+uvicorn
+pydantic
+
+# Utilities
+requests
+rich

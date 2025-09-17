@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Saudi Arabian Agricultural Theme - Naama Search Design System
+All colors MUST be HSL for proper theming support
+*/
+
+@layer base {
+  :root {
+    /* Font Family - Change ONLY here */
+    /* --font-family: 'Almarai', sans-serif; */
+    --font-family: 'Tajawal', sans-serif;
+
+    /* Saudi Theme Colors */
+    --background: 210 20% 98%;
+    --foreground: 210 30% 15%;
+    
+    /* Naama.sa official colors */
+    --primary: 142 69% 20%;          /* Deep forest green matching naama.sa */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 142 50% 30%;     /* Slightly lighter green */
+    
+    /* Gold Secondary */
+    --secondary: 51 100% 50%;
+    --secondary-foreground: 210 30% 15%;
+    
+    /* Card and UI Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 210 30% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 30% 15%;
+    
+    /* Muted colors for subtle elements */
+    --muted: 210 15% 92%;
+    --muted-foreground: 210 10% 40%;
+    
+    /* Accent colors */
+    --accent: 153 30% 90%;
+    --accent-foreground: 153 100% 19%;
+    
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    
+    /* UI Elements */
+    --border: 210 20% 88%;
+    --input: 210 20% 95%;
+    --ring: 153 100% 19%;
+    
+    /* Layout */
+    --radius: 0.75rem;
+    
+    /* Saudi Design Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    
+    /* Shadows */
+    --shadow-elegant: 0 4px 20px -2px hsl(var(--primary) / 0.1);
+    --shadow-card: 0 2px 10px -1px hsl(var(--foreground) / 0.1);
+    --shadow-search: 0 8px 30px -5px hsl(var(--primary) / 0.15);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-search: all 0.2s ease-out;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    direction: rtl; /* Arabic RTL support */
+    font-family: var(--font-family) !important;
+  }
+
+  /* Arabic font optimization */
+  .arabic-text {
+    font-family: var(--font-family) !important;
+    line-height: 1.8 !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Apply font to all elements */
+  h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea {
+    font-family: var(--font-family) !important;
+  }
+  
+  /* Custom scrollbar for Arabic content */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+}
+
+@layer components {
+  /* Search Components */
+  .search-container {
+    @apply relative max-w-4xl mx-auto;
+  }
+  
+  .search-input {
+    @apply w-full px-6 py-4 text-lg rounded-xl border border-border;
+    @apply bg-input text-foreground placeholder:text-muted-foreground;
+    @apply focus:outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary;
+    @apply transition-all duration-200;
+    box-shadow: var(--shadow-search);
+  }
+  
+  .search-button {
+    @apply absolute left-4 top-1/2 -translate-y-1/2;
+    @apply bg-primary text-primary-foreground;
+    @apply hover:bg-primary-glow hover:scale-105;
+    @apply rounded-lg p-3 transition-all duration-200;
+    @apply shadow-md hover:shadow-lg;
+  }
+  
+  /* Result Cards */
+  .result-card {
+    @apply bg-card border border-border rounded-xl p-6;
+    @apply hover:shadow-lg hover:border-primary/20;
+    @apply transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  /* Developer Mode */
+  .developer-panel {
+    @apply bg-gradient-to-br from-accent/50 to-muted;
+    @apply border border-border rounded-xl p-6;
+    @apply backdrop-blur-sm;
+  }
+  
+  /* Badges */
+  .badge-sector {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+    @apply bg-primary/10 text-primary border border-primary/20;
+  }
+  
+  .badge-classification {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+    @apply bg-secondary/20 text-secondary-foreground border border-secondary/30;
+  }
+  
+  /* Loading States */
+  .loading-shimmer {
+    @apply animate-pulse bg-gradient-to-r from-muted via-muted/50 to-muted;
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Saudi Branding */
+  .saudi-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+}

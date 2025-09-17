@@ -1,0 +1,52 @@
+# Core packages already installed in Dockerfile layers
+# Only override specific versions for compatibility
+numpy<2.0.0
+faiss-gpu-cu12
+
+# Arabic NLP
+pyarabic
+nltk
+
+# Data processing
+openpyxl
+xlrd
+
+# Text processing
+pyyaml
+pyspellchecker
+
+# Logging and utilities
+rich
+
+# Web framework for future API
+fastapi
+uvicorn[standard]
+pydantic
+
+# Development and testing
+jupyter
+jupyterlab
+notebook
+ipywidgets
+
+# Additional utilities
+requests
+python-multipart
+python-dotenv
+
+# HuggingFace integration
+huggingface_hub
+
+# PyTorch-only setup (no TensorFlow)
+torch
+sentence-transformers
+transformers
+
+# Additional embedding model support
+optimum
+einops
+peft
+accelerate
+
+# ScaNN for fast approximate nearest neighbor search
+scann

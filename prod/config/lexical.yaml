@@ -1,0 +1,325 @@
+arabic_species:
+  # PETS - Critical for preventing false positives (must be first for priority)
+  بسة: [بسة, قطة, قط, قطط, القطط, هرة, هر, الهرة, استيراد, تصدير, حيوانات أليفة]  # cats + key license terms
+  قطة: [بسة, قطة, قط, قطط, القطط, هرة, هر, الهرة, استيراد, تصدير, حيوانات أليفة]  # cats + key license terms
+  قط: [بسة, قطة, قط, قطط, القطط, هرة, هر, الهرة, استيراد, تصدير, حيوانات أليفة]   # cats + key license terms
+  قطط: [بسة, قطة, قط, قطط, القطط, هرة, هر, الهرة, استيراد, تصدير, حيوانات أليفة]  # cats + key license terms
+  القطط: [بسة, قطة, قط, قطط, القطط, هرة, هر, الهرة, استيراد, تصدير, حيوانات أليفة] # cats + key license terms
+  كلب: [كلب, كلاب, الكلاب, جرو, جراء]              # dogs
+  كلاب: [كلب, كلاب, الكلاب, جرو, جراء]             # dogs
+  الكلاب: [كلب, كلاب, الكلاب, جرو, جراء]           # dogs
+
+  # Horse/Equine family - Enhanced for تربية خيل/حصان queries
+  حصان: [خيل, فرس, حصان, الحصان, خيول, الخيول, الحيوانات الخيلية, مربط, مرابط]
+  خيل: [خيل, فرس, حصان, الحصان, خيول, الخيول, الحيوانات الخيلية, مربط, مرابط]
+  فرس: [خيل, فرس, حصان, الحصان, خيول, الخيول, الحيوانات الخيلية, مربط, مرابط]
+  الخيول: [خيل, فرس, حصان, الحصان, خيول, الخيول, الحيوانات الخيلية, مربط, مرابط]
+  الحصان: [خيل, فرس, حصان, الحصان, خيول, الخيول, الحيوانات الخيلية, مربط, مرابط]
+  خيول: [خيل, فرس, حصان, الحصان, خيول, الخيول, الحيوانات الخيلية, مربط, مرابط]
+  مربط: [خيل, فرس, حصان, الحصان, خيول, الخيول, الحيوانات الخيلية, مربط, مرابط]
+  مرابط: [خيل, فرس, حصان, الحصان, خيول, الخيول, الحيوانات الخيلية, مربط, مرابط]
+  
+  # Camel family
+  جمل: [جمل, إبل, ناقة, الجمال, الحيوانات الجملية]
+  إبل: [جمل, إبل, ناقة, الجمال, الحيوانات الجملية]
+  ناقة: [جمل, إبل, ناقة, الجمال, الحيوانات الجملية]
+  الجمال: [جمل, إبل, ناقة, الجمال, الحيوانات الجملية]
+  
+  # Cattle/Livestock - Enhanced from Excel
+  أبقار: [بقر, أبقار, ماشية, الأبقار, مواشي]
+  بقر: [بقر, أبقار, ماشية, الأبقار, مواشي]
+  ماشية: [بقر, أبقار, ماشية, الأبقار, مواشي, حيوانات]
+  مواشي: [بقر, أبقار, ماشية, الأبقار, مواشي, حيوانات]
+  الأبقار: [بقر, أبقار, ماشية, الأبقار, مواشي]
+  
+  # Goats
+  ماعز: [ماعز, جدي, الماعز]
+  جدي: [ماعز, جدي, الماعز]
+  الماعز: [ماعز, جدي, الماعز]
+  
+  # Sheep
+  ضأن: [ضأن, خروف, غنم, الضأن]
+  غنم: [ضأن, خروف, غنم, الضأن]
+  خروف: [ضأن, خروف, غنم, الضأن]
+  الضأن: [ضأن, خروف, غنم, الضأن]
+  
+  # Bees - Enhanced for تربية نحل query
+  نحل: [نحل, عسل, النحل, منحل, مناحل, نحال, نحالة, نحالين, خلية, خلايا, شمع]
+  النحل: [نحل, عسل, النحل, منحل, مناحل, نحال, نحالة, نحالين, خلية, خلايا, شمع]
+  منحل: [نحل, عسل, النحل, منحل, مناحل, نحال, نحالة, نحالين, خلية, خلايا, شمع]
+  مناحل: [نحل, عسل, النحل, منحل, مناحل, نحال, نحالة, نحالين, خلية, خلايا, شمع]
+  عسل: [نحل, عسل, النحل, منحل, مناحل, نحال, نحالة, نحالين, خلية, خلايا, شمع]
+  نحال: [نحل, عسل, النحل, منحل, مناحل, نحال, نحالة, نحالين, خلية, خلايا, شمع]
+  نحالة: [نحل, عسل, النحل, منحل, مناحل, نحال, نحالة, نحالين, خلية, خلايا, شمع]
+  نحالين: [نحل, عسل, النحل, منحل, مناحل, نحال, نحالة, نحالين, خلية, خلايا, شمع]
+  خلية: [نحل, عسل, النحل, منحل, مناحل, نحال, نحالة, نحالين, خلية, خلايا, شمع]
+  خلايا: [نحل, عسل, النحل, منحل, مناحل, نحال, نحالة, نحالين, خلية, خلايا, شمع]
+  
+  # Poultry - Enhanced from Excel
+  دجاج: [دجاج, دواجن, الدواجن, فروج, بيض, فقس]
+  دواجن: [دجاج, دواجن, الدواجن, فروج, بيض, فقس]
+  الدواجن: [دجاج, دواجن, الدواجن, فروج, بيض, فقس]
+  فروج: [دجاج, دواجن, الدواجن, فروج, بيض, فقس]
+  
+  # Rabbits and small animals
+  أرانب: [أرانب, الأرانب, قوارض]
+  الأرانب: [أرانب, الأرانب, قوارض]
+  قوارض: [أرانب, الأرانب, قوارض]
+  
+  # Marine life - Enhanced from Excel
+  ربيان: [ربيان, الربيان, جمبري, استزراع مائي]
+  الربيان: [ربيان, الربيان, جمبري, استزراع مائي]
+  أسماك: [أسماك, الأسماك, سمك, استزراع مائي]
+  الأسماك: [أسماك, الأسماك, سمك, استزراع مائي]
+  سمك: [أسماك, الأسماك, سمك, استزراع مائي]
+  
+  # Pets
+  قطط: [قطط, القطط, قط, القط, قطه, القطه, بسة, البسة, بس]
+  القطط: [قطط, القطط, قط, القط, قطه, القطه, بسة, البسة, بس]
+  # Additional cat variants - بسة support (consolidated into main definitions above)
+  # بسة: [قطط, القطط, قط, القط, قطه, القطه, بسة, البسة, بس]  # REMOVED - duplicate
+  البسة: [قطط, القطط, قط, القط, قطه, القطه, بسة, البسة, بس, استيراد, تصدير, حيوانات أليفة]
+  بس: [قطط, القطط, قط, القط, قطه, القطه, بسة, البسة, بس, استيراد, تصدير, حيوانات أليفة]
+  كلاب: [كلاب, الكلاب]
+  الكلاب: [كلاب, الكلاب]
+  
+  # Birds
+  طيور: [طيور, الطيور]
+  الطيور: [طيور, الطيور]
+  
+  # General animal terms
+  حيوان: [حيوان, حيوانات, الحيوانات]
+  حيوانات: [حيوان, حيوانات, الحيوانات]
+  الحيوانات: [حيوان, حيوانات, الحيوانات]
+  الثروة الحيوانية: [الثروة الحيوانية, حيوانات, ماشية, مواشي]
+  
+  # Infrastructure - For احفر بير queries
+  بئر: [بئر, بير, بئار, الآبار, مياه, المياه, حفر, حفار]
+  بير: [بئر, بير, بئار, الآبار, مياه, المياه, حفر, حفار]  
+  بئار: [بئر, بير, بئار, الآبار, مياه, المياه, حفر, حفار]
+  الآبار: [بئر, بير, بئار, الآبار, مياه, المياه, حفر, حفار]
+  مياه: [بئر, بير, بئار, الآبار, مياه, المياه, حفر, حفار]
+  المياه: [بئر, بير, بئار, الآبار, مياه, المياه, حفر, حفار]
+  حفر: [بئر, بير, بئار, الآبار, مياه, المياه, حفر, حفار, احفر]
+  حفار: [بئر, بير, بئار, الآبار, مياه, المياه, حفر, حفار, احفر]
+  احفر: [بئر, بير, بئار, الآبار, مياه, المياه, حفر, حفار, احفر]
+  
+  # Feed/Food terms - Enhanced from Excel analysis
+  علف: [علف, أعلاف, الأعلاف, تغذية, طعام]
+  أعلاف: [علف, أعلاف, الأعلاف, تغذية, طعام]
+  الأعلاف: [علف, أعلاف, الأعلاف, تغذية, طعام]
+  تغذية: [علف, أعلاف, الأعلاف, تغذية, طعام]
+  
+  # Comprehensive fruits and vegetables from Excel
+  فاكهة: [فاكهة, فواكه, الفواكه, ثمار, فاكهه]
+  فواكه: [فاكهة, فواكه, الفواكه, ثمار, فاكهه]
+  الفواكه: [فاكهة, فواكه, الفواكه, ثمار, فاكهه]
+  ثمار: [فاكهة, فواكه, الفواكه, ثمار, فاكهه]
+  فاكهه: [فاكهة, فواكه, الفواكه, ثمار, فاكهه]  # normalized form
+  
+  # Vegetables - Enhanced from Excel
+  خضار: [خضار, خضروات, الخضار, نبات, نباتات]
+  خضروات: [خضار, خضروات, الخضار, نبات, نباتات]
+  نبات: [خضار, خضروات, الخضار, نبات, نباتات]
+  
+  # Specific crops from Excel
+  طماطم: [طماطم, الطماطم]
+  الطماطم: [طماطم, الطماطم]
+  مانجو: [مانجو, المانجو]
+  المانجو: [مانجو, المانجو]
+  تين: [تين, التين]
+  التين: [تين, التين]
+  حمضيات: [حمضيات, الحمضيات, موالح]
+  الحمضيات: [حمضيات, الحمضيات, موالح]
+  موالح: [حمضيات, الحمضيات, موالح]
+  الموالح: [حمضيات, الحمضيات, موالح]
+  زيتون: [زيتون, الزيتون]
+  الزيتون: [زيتون, الزيتون]
+  بطاطس: [بطاطس, البطاطس, بطاطا]
+  البطاطس: [بطاطس, البطاطس, بطاطا]
+  بطاطا: [بطاطس, البطاطس, بطاطا]
+  بصل: [بصل, البصل]
+  البصل: [بصل, البصل]
+  جزر: [جزر, الجزر]
+  الجزر: [جزر, الجزر]
+  
+  # Grains and feed crops from Excel
+  قمح: [قمح, القمح, حبوب]
+  القمح: [قمح, القمح, حبوب]
+  حبوب: [قمح, القمح, حبوب]
+  
+  # Tree crops from Excel
+  نخيل: [نخيل, النخيل, تمور, التمور]
+  النخيل: [نخيل, النخيل, تمور, التمور]
+  تمور: [نخيل, النخيل, تمور, التمور]
+  التمور: [نخيل, النخيل, تمور, التمور]
+
+arabic_actions:
+  # Breeding/Raising
+  تربية: [تربية, إنتاج, تنمية]
+  إنتاج: [إنتاج, تربية, تنمية]
+  
+  # Transfer/Movement - Enhanced with ownership terms
+  نقل: [نقل, تحويل, انتقال, نقل ملكية, تحويل ملكية]
+  تحويل: [نقل, تحويل, انتقال, نقل ملكية, تحويل ملكية]
+  انتقال: [نقل, تحويل, انتقال, نقل ملكية, تحويل ملكية]
+  ملكية: [نقل, تحويل, انتقال, نقل ملكية, تحويل ملكية, ملكية]
+  
+  # Renewal/Update
+  تجديد: [تجديد, تحديث, تحديد]
+  تحديث: [تجديد, تحديث, تحديد]
+  
+  # Issuance/Creation
+  إصدار: [إصدار, استخراج, اصدار]
+  استخراج: [إصدار, استخراج, اصدار]
+  اصدار: [إصدار, استخراج, اصدار]
+  
+  # Cancellation/Deletion
+  إلغاء: [إلغاء, حذف, الغاء]
+  حذف: [إلغاء, حذف, الغاء]
+  الغاء: [إلغاء, حذف, الغاء]
+  
+  # Licensing - Enhanced from Excel
+  ترخيص: [ترخيص, رخصة, تراخيص, انشائي, تشغيلي]
+  رخصة: [ترخيص, رخصة, تراخيص, انشائي, تشغيلي]
+  تراخيص: [ترخيص, رخصة, تراخيص, انشائي, تشغيلي]
+  انشائي: [ترخيص, رخصة, تراخيص, انشائي, بناء]
+  تشغيلي: [ترخيص, رخصة, تراخيص, تشغيلي, تشغيل]
+  
+  # Permits
+  تصريح: [تصريح, اذن, إذن, تصاريح]
+  اذن: [تصريح, اذن, إذن, تصاريح]
+  إذن: [تصريح, اذن, إذن, تصاريح]
+  تصاريح: [تصريح, اذن, إذن, تصاريح]
+  
+  # Expansion
+  توسعة: [توسعة, توسع, تمديد]
+  توسع: [توسعة, توسع, تمديد]
+  تمديد: [توسعة, توسع, تمديد]
+  
+  # Change/Modification
+  تغيير: [تغيير, تعديل, تبديل]
+  تعديل: [تغيير, تعديل, تبديل]
+  تبديل: [تغيير, تعديل, تبديل]
+  
+  # Import/Export
+  استيراد: [استيراد, استورد, ادخال, قطط, قط, بسة, حيوانات أليفة]
+  تصدير: [تصدير, صدر, اخراج, قطط, قط, بسة, حيوانات أليفة]
+  استورد: [استيراد, استورد, ادخال]
+  صدر: [تصدير, صدر, اخراج]
+  
+  # Cultivation/Farming - Enhanced
+  زراعة: [زراعة, زرع, فلاحة, استزراع, مزرعة]
+  زرع: [زراعة, زرع, فلاحة, استزراع, مزرعة]
+  فلاحة: [زراعة, زرع, فلاحة, استزراع, مزرعة]
+  استزراع: [زراعة, زرع, فلاحة, استزراع, مزرعة]
+  مزرعة: [زراعة, زرع, فلاحة, استزراع, مزرعة]
+  
+  # Marketing/Sales - Enhanced from Excel
+  بيع: [بيع, تسويق, مبيعات, تجارة]
+  تسويق: [بيع, تسويق, مبيعات, تجارة]
+  مبيعات: [بيع, تسويق, مبيعات, تجارة]
+  تجارة: [بيع, تسويق, مبيعات, تجارة]
+  
+  # Numbering/Registration
+  ترقيم: [ترقيم, تسجيل, قيد]
+  تسجيل: [ترقيم, تسجيل, قيد]
+  قيد: [ترقيم, تسجيل, قيد]
+  
+  # Entry/Exit
+  دخول: [دخول, خروج, عبور]
+  خروج: [دخول, خروج, عبور]
+  عبور: [دخول, خروج, عبور]
+
+english_actions:
+  # Creation/Establishment - Enhanced with license types
+  new: [new, create, establish, build, initial, building]
+  create: [new, create, establish, build, initial, building]
+  establish: [new, create, establish, build, initial, building]
+  build: [new, create, establish, build, initial, building]
+  initial: [new, create, establish, build, initial, building]
+  building: [new, create, establish, build, initial, building]
+  
+  # Renewal/Update
+  renew: [renew, update, refresh, renewal]
+  update: [renew, update, refresh, renewal]
+  refresh: [renew, update, refresh, renewal]
+  renewal: [renew, update, refresh, renewal]
+  
+  # Transfer/Movement - Enhanced
+  transfer: [transfer, move, change, ownership]
+  move: [transfer, move, change, ownership]
+  change: [transfer, move, change, ownership]
+  ownership: [transfer, move, change, ownership]
+  
+  # Cancellation/Deletion
+  cancel: [cancel, delete, remove, cancellation]
+  delete: [cancel, delete, remove, cancellation]
+  remove: [cancel, delete, remove, cancellation]
+  cancellation: [cancel, delete, remove, cancellation]
+  
+  # Import/Export
+  import: [import, importing, entry]
+  export: [export, exporting, exit]
+  importing: [import, importing, entry]
+  exporting: [export, exporting, exit]
+  entry: [import, importing, entry, exit]
+  exit: [export, exporting, exit, entry]
+  
+  # Licensing/Permits - Enhanced
+  license: [license, permit, licensing]
+  permit: [license, permit, licensing]
+  licensing: [license, permit, licensing]
+  
+  # Expansion
+  expand: [expand, expansion, extend]
+  expansion: [expand, expansion, extend]
+  extend: [expand, expansion, extend]
+  
+  # Operations
+  operate: [operate, operational, operation]
+  operational: [operate, operational, operation]
+  operation: [operate, operational, operation]
+  
+  # Breeding/Farming - Enhanced
+  breed: [breed, breeding, farm, farming, cultivation]
+  breeding: [breed, breeding, farm, farming, cultivation]
+  farm: [breed, breeding, farm, farming, cultivation]
+  farming: [breed, breeding, farm, farming, cultivation]
+  cultivation: [breed, breeding, farm, farming, cultivation]
+  
+  # Sales/Marketing - Enhanced from Excel analysis
+  sales: [sales, sell, selling, marketing, market]
+  sell: [sales, sell, selling, marketing, market]
+  selling: [sales, sell, selling, marketing, market]
+  marketing: [sales, sell, selling, marketing, market]
+  market: [sales, sell, selling, marketing, market]
+  
+  # Feed - Enhanced from Excel analysis
+  feed: [feed, feeding, nutrition, food]
+  feeding: [feed, feeding, nutrition, food]
+  nutrition: [feed, feeding, nutrition, food]
+  
+  # Fruits and vegetables for English
+  fruit: [fruit, fruits, orchard]
+  fruits: [fruit, fruits, orchard]
+  vegetable: [vegetable, vegetables, crops]
+  vegetables: [vegetable, vegetables, crops]
+  
+  # Registration/Numbering
+  register: [register, registration, numbering]
+  registration: [register, registration, numbering]
+  numbering: [register, registration, numbering]
+
+# Semantic incompatible patterns for false positive filtering
+semantic_incompatible:
+  # Construction queries should NOT match cleaning services
+  احفر: [نظافة, تنظيف, غسيل, كنس, مسح]
+  بير: [نظافة, تنظيف, غسيل, كنس, مسح]
+  بئر: [نظافة, تنظيف, غسيل, كنس, مسح]
+  حفر: [نظافة, تنظيف, غسيل, كنس, مسح]
+  
+  
+  # Feed sales should be specific
+  feed: [تربية الأسماك, استزراع مائي]
+  sales: [تربية الأسماك, استزراع مائي]

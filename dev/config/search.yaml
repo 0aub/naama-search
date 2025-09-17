@@ -1,0 +1,120 @@
+# Search configuration presets - VALIDATED ONLY (Post Phase 5 Emergency)
+# COSINE-RERANKER permanently blocked due to 91% false positive rate
+
+search_presets:
+  # PHASE 1.5 EMERGENCY: Pure FAISS - No reranker interference 
+  emergency_faiss_only:
+    top_k: 30                    # Maximum results for coverage
+    similarity_threshold_pct: 35  # EMERGENCY: Ultra-low 35% threshold
+    similarity_threshold: 0.35
+    use_lexical_filtering: true
+    model: "faiss"               # EMERGENCY: Pure FAISS - no reranker
+    description: "PHASE 1.5 EMERGENCY: Pure FAISS only - reranker disabled"
+    emergency_mode: true
+    
+  # PHASE 1 EMERGENCY: Ultra-low threshold for false negative fix
+  emergency_low_threshold:
+    top_k: 30                    # Maximum results for coverage
+    similarity_threshold_pct: 42  # EMERGENCY: Reduced to 42% for critical queries
+    similarity_threshold: 0.42
+    use_lexical_filtering: true
+    model: "arabic-cosine-reranker"
+    description: "PHASE 1 EMERGENCY: Ultra-low threshold for false negative crisis"
+    emergency_mode: true
+  
+  # PHASE 1 EMERGENCY: FAISS baseline with very low threshold
+  faiss_emergency:
+    top_k: 25                    # More results for better coverage  
+    similarity_threshold_pct: 40  # EMERGENCY: Reduced to 40% for maximum recall
+    similarity_threshold: 0.40
+    use_lexical_filtering: true
+    model: "faiss"
+    description: "PHASE 1 EMERGENCY: FAISS with ultra-low threshold for maximum recall"
+    emergency_mode: true
+
+  # NEW PREFERRED CONFIGURATION (FAISS OPTIMIZED FOR RECALL)
+  faiss_preferred:
+    top_k: 25                    # More results for better coverage
+    similarity_threshold_pct: 45  # Lower threshold to catch legitimate services
+    similarity_threshold: 0.45
+    use_lexical_filtering: true
+    model: "faiss"
+    description: "Optimized for recall - avoids reranker penalty cascade"
+    
+  # ALTERNATIVE CONFIGURATION (MINILM-RERANKER WITH REDUCED PENALTIES)
+  minilm_reduced_penalties:
+    top_k: 20
+    similarity_threshold_pct: 50  # Lowered from 55%
+    similarity_threshold: 0.50
+    use_lexical_filtering: true
+    model: "minilm-reranker"
+    description: "MiniLM reranker with reduced penalties - balanced approach"
+  
+  # DEPRECATED ALIAS (Backwards compatibility)
+  jina_reduced_penalties:
+    top_k: 20
+    similarity_threshold_pct: 50
+    similarity_threshold: 0.50
+    use_lexical_filtering: true
+    model: "jina-reranker"  # Actually uses MiniLM embeddings
+    description: "DEPRECATED: Use minilm_reduced_penalties instead - misleading name"
+    deprecated: true
+    
+  # FALLBACK CONFIGURATION (FAISS RECALIBRATED)
+  faiss_recalibrated:
+    top_k: 15
+    similarity_threshold_pct: 65  # Stricter threshold after recalibration
+    similarity_threshold: 0.65
+    use_lexical_filtering: true
+    model: "faiss"
+    description: "Acceptable fallback - recalibrated with strict thresholds"
+    
+  # MONITORING CONFIGURATION (HNSW)
+  hnsw_monitoring:
+    top_k: 15
+    similarity_threshold_pct: 60
+    similarity_threshold: 0.60
+    use_lexical_filtering: true
+    model: "hnsw"
+    description: "Monitoring required - use with careful validation"
+  
+  # LEGACY PRESETS (Deprecated but kept for reference)
+  standard:
+    top_k: 20
+    similarity_threshold_pct: 60
+    similarity_threshold: 0.60
+    use_lexical_filtering: true
+    deprecated: true
+    
+  strict:
+    top_k: 15
+    similarity_threshold_pct: 75
+    similarity_threshold: 0.75
+    use_lexical_filtering: true
+    deprecated: true
+    
+  relaxed:
+    top_k: 30
+    similarity_threshold_pct: 45
+    similarity_threshold: 0.45
+    use_lexical_filtering: true
+    deprecated: true
+    warning: "Use validated presets instead"
+
+# Validated reranker settings (COSINE-RERANKER blocked)
+reranker_settings:
+  candidates_k: 100  # Number of candidates to pass to reranker
+  fusion_weights:
+    embedding: 0.4
+    reranker: 0.5
+    lexical: 0.1
+    
+# SOLUTION 4: Updated Emergency Configuration
+phase5_emergency:
+  blocked_presets: 
+    - "cosine-reranker"  # 91% false positive rate
+  default_preset: "emergency_faiss_only"    # PHASE 1.5: Pure FAISS emergency mode
+  fallback_preset: "minilm_reduced_penalties" # PHASE 1: MiniLM-reranker fallback (corrected name)
+  emergency_fallback: "faiss_emergency"     # PHASE 1: Previous emergency as final fallback
+  validation_required: true
+  zero_tolerance_false_positives: true

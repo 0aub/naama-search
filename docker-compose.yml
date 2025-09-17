@@ -1,0 +1,60 @@
+
+services:
+  prod:
+    build:
+      context: ./prod
+      dockerfile: Dockerfile
+    container_name: prod
+    ports:
+      - "9001:8000"
+    environment:
+      - ENVIRONMENT=production
+      - MODEL_NAME=multilingual_e5_pure-cosine-reranker_k100_a0.6_full_proc
+    volumes:
+      - ./prod/data:/app/data:ro
+      - ./prod/logs:/app/logs
+      - ./prod/models_cache:/app/models_cache
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # dev:
+  #   build:
+  #     context: ./dev
+  #     dockerfile: Dockerfile
+  #   container_name: dev
+  #   ports:
+  #     - "8002:8000"
+  #   environment:
+  #     - ENVIRONMENT=development
+  #   volumes:
+  #     - ./dev/data:/app/data
+  #     - ./dev/models_cache:/app/models_cache
+  #     - ./dev/logs:/app/logs
+  #     - ./dev/src:/app/src
+  #     - ./dev/notebooks:/app/notebooks
+  #   restart: unless-stopped
+
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    container_name: ui
+    ports:
+      - "9000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:9001
+    volumes:
+      - ./ui/src:/app/src
+      - ./ui/public:/app/public
+      - ./ui/index.html:/app/index.html
+      - ./ui/tailwind.config.ts:/app/tailwind.config.ts
+      - ./ui/vite.config.ts:/app/vite.config.ts
+    depends_on:
+      - prod
+    restart: unless-stopped

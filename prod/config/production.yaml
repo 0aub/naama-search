@@ -1,0 +1,30 @@
+# PRODUCTION CONFIGURATION - WINNER ONLY
+# multilingual_e5_pure-cosine-reranker_k100_a0.6_full_proc
+
+# Single production model
+embedding_model: "intfloat/multilingual-e5-large"
+
+# Single production similarity method
+similarity_method: "pure-cosine-reranker"
+
+# Production reranker configuration
+reranker:
+  model: "oddadmix/arabic-reranker"
+  candidates_k: 100
+  alpha: 0.6
+
+# Production search settings
+search:
+  top_k: 20
+  similarity_threshold_pct: 55
+  similarity_threshold: 0.55
+
+# Production processing (full_proc)
+processing:
+  use_morphology: true
+  use_normalization: true
+  use_lexical_filtering: true
+
+# Model configuration
+model_config:
+  trust_remote_code: true

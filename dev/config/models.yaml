@@ -1,0 +1,41 @@
+# Model configurations - generic naming
+
+embedding_models:
+  # Arabic specialized models
+  arabic-embedding-001: "asafaya/bert-base-arabic"
+  arabic-embedding-002: "asafaya/bert-base-arabic"
+  
+  # Fast lightweight models
+  lightweight-embedding-001: "all-MiniLM-L6-v2"
+  lightweight-embedding-002: "all-MiniLM-L12-v2"
+  lightweight-embedding-003: "paraphrase-MiniLM-L6-v2"
+  
+  # High-quality multilingual models
+  multilingual-embedding-001: "all-mpnet-base-v2"
+  multilingual-embedding-002: "intfloat/multilingual-e5-large"
+  multilingual-embedding-003: "BAAI/bge-m3"
+  multilingual-embedding-004: "Alibaba-NLP/gte-multilingual-base"
+  
+  # Premium models
+  premium-embedding-001: "jinaai/jina-embeddings-v3"
+  premium-embedding-002: "Qwen/Qwen2.5-Embedding"
+
+# Reranker models
+rerankers:
+  arabic-reranker-001: "oddadmix/arabic-reranker"
+
+# Similarity methods - VALIDATED PRESETS ONLY (Post Phase 5 Emergency)
+similarity_methods:
+  # VALIDATED PRESETS (Production Ready)
+  - minilm-reranker      # PREFERRED: Best performing preset (<5% false positive rate) 
+  - faiss                # ACCEPTABLE: Recalibrated with strict thresholds
+  
+  # MONITORING REQUIRED
+  - hnsw                 # FAIR: Acceptable with careful monitoring
+  - hybrid-minilm-reranker # GOOD: Hybrid approach, validated
+  
+  # EXPERIMENTAL RERANKERS (Testing Phase)
+  - cosine-reranker-similarity # NEW: Pure cosine similarity + Arabic reranker
+  
+  # LEGACY/EXPERIMENTAL (Use with caution) 
+  - scann                # UNKNOWN: Not extensively validated
