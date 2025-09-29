@@ -199,19 +199,19 @@ pyarabic_config:
   remove_tatweel: true           # Remove tatweel (kashida)
   normalize_teh: true            # Normalize teh marbuta
   
-  # Stemming approach
+  # Stemming approach - CONSERVATIVE for colloquials
   stemming_method: "light"       # Options: "light", "root", "prefix_suffix", "custom"
   use_root_extraction: false     # Try to extract Arabic roots
-  
-  # Light stemming parameters
+
+  # Light stemming parameters - REDUCED for diminutives
   remove_common_prefixes: true   # Remove common prefixes (ال، و، ف، etc)
-  remove_common_suffixes: true   # Remove common suffixes (ها، هم، etc)
-  
+  remove_common_suffixes: false  # DISABLED: Don't remove suffixes like ي from قطوتي
+
   # Custom parameters
   aggressive_stemming: false     # More aggressive stemming if true
 
-# Stemming parameters
+# Stemming parameters - CONSERVATIVE for Arabic diminutives/colloquials
 stemming_params:
-  min_word_length: 3        # Don't stem words shorter than this
-  min_reduction_ratio: 0.6  # Don't reduce by more than 40%
-  min_stem_length: 2        # Stem must be at least this long
+  min_word_length: 4        # Don't stem words shorter than 4 chars (prevents قطة stemming)
+  min_reduction_ratio: 0.75 # Don't reduce by more than 25% (more conservative)
+  min_stem_length: 3        # Stem must be at least 3 chars (prevents over-reduction)

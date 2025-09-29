@@ -13,11 +13,11 @@ reranker:
   candidates_k: 100
   alpha: 0.6
 
-# Production search settings
+# Production search settings (OPTIMIZED FOR ARABIC VARIANTS)
 search:
-  top_k: 20
-  similarity_threshold_pct: 55
-  similarity_threshold: 0.55
+  top_k: 30
+  similarity_threshold_pct: 35
+  similarity_threshold: 0.35
 
 # Production processing (full_proc)
 processing:

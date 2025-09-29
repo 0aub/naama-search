@@ -30,10 +30,10 @@ class ProductionSearch:
         self.lexical_filter = lexical_filter
 
         # Optimized parameters for faster performance
-        self.candidates_k = 50  # Reduced from 100 for faster search
+        self.candidates_k = 100  # Restored to 100 for better recall (from test logs)
         self.alpha = 0.6
-        self.top_k = 20
-        self.threshold = 0.45  # Lowered threshold for more results
+        self.top_k = 30  # Increased to 30 for better coverage
+        self.threshold = 0.30  # Lowered threshold for Arabic language variants (based on test logs)
 
         # Pre-compute document embeddings
         self.documents = documents
@@ -59,6 +59,7 @@ class ProductionSearch:
         use_alpha = alpha if alpha is not None else self.alpha
         use_top_k = top_k if top_k is not None else self.top_k
         use_threshold = threshold if threshold is not None else self.threshold
+
 
         # Apply winner processing (full_proc)
         processed_query = self.normalizer.normalize(query)

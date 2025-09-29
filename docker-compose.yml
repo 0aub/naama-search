@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     container_name: prod
     ports:
-      - "9001:8000"
+      - "${PROD_PORT_EXTERNAL:-7901}:${PROD_PORT_INTERNAL:-8000}"
     environment:
       - ENVIRONMENT=production
       - MODEL_NAME=multilingual_e5_pure-cosine-reranker_k100_a0.6_full_proc
@@ -29,7 +29,7 @@ services:
   #     dockerfile: Dockerfile
   #   container_name: dev
   #   ports:
-  #     - "8002:8000"
+  #     - "${DEV_PORT_EXTERNAL:-7902}:${DEV_PORT_INTERNAL:-8000}"
   #   environment:
   #     - ENVIRONMENT=development
   #   volumes:
@@ -44,11 +44,13 @@ services:
     build:
       context: ./ui
       dockerfile: Dockerfile
+      args:
+        - UI_PORT=${UI_PORT_INTERNAL:-7905}
     container_name: ui
     ports:
-      - "9000:3000"
+      - "${UI_PORT_EXTERNAL:-7900}:${UI_PORT_INTERNAL:-7905}"
     environment:
-      - VITE_API_URL=http://localhost:9001
+      - VITE_API_URL=${VITE_API_URL:-http://localhost:7901}
     volumes:
       - ./ui/src:/app/src
       - ./ui/public:/app/public
