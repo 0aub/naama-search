@@ -28,3 +28,4 @@ pydantic
 # Utilities
 requests
 rich
+beautifulsoup4
